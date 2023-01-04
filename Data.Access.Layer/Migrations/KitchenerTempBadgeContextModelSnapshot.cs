@@ -85,6 +85,12 @@ namespace Data.Access.Layer.Migrations
                     b.Property<string>("TempBadge")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+                    /*b.Property<int>("TempBadge")
+                        .IsRequired()
+                        .HasColumnType("int")
+                        .HasDefaultValueSql("NULL")
+                        .UseIdentityColumn();*/
+                        
 
                     b.HasKey("Id");
 

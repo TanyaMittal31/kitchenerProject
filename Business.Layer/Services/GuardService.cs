@@ -24,6 +24,10 @@ namespace Business.Layer.Services
 
         public IEnumerable<Gaurd> SignInBadge(string fname, string lname, int ecode)
         {
+            if(fname == null || ecode == null)
+            {
+                return null;
+            }
             return _repo.SignInBadge(fname,lname,ecode);
         }
 
@@ -38,15 +42,33 @@ namespace Business.Layer.Services
             return (_repo.GetMultiModels());
         }
 
-        public IEnumerable<Report> GetReports()
+        /*public IEnumerable<Report> GetReports()
         {
             return _repo.GetReports();
-        }
+        }*/
 
         public IEnumerable<Gaurd> SignOutPage(string TempBadge)
         {
+            if(TempBadge == null)
+            {
+                return null;
+            }
             return _repo.SignOutPage(TempBadge);
         }
-        
+        //==========================
+        public IEnumerable<Gaurd> GetNReports()
+        {
+            return _repo.GetNReports();
+        }
+        public IEnumerable<Gaurd> GetReports(DateTime StartDate, DateTime EndDate, string FirstName, string LastName, string Status)
+        { 
+            //================
+            return _repo.GetReports(StartDate,EndDate,FirstName,LastName,Status);
+        }
+
+        public IEnumerable<Report> GetBadgeQueue()
+        {
+            return _repo.GetBadgeQueue();
+        }
     }
 }

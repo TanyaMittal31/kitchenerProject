@@ -1,17 +1,79 @@
-﻿@model IEnumerable<Data.Access.Layer.Models.Report>
+﻿@model IEnumerable<Data.Access.Layer.Models.Gaurd>
 
 @{
     ViewData["Title"] = "BadgeReportPage";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>BadgeReportPage</h1>
+<h1>Badge Report Page</h1>
+<p>
+    <a asp-action="Index">Back to Home Page</a>
+</p>
+
+<div class="row">
+    
+    <div class="col-md-4">
+        <form asp-action="BadgeReportPage" asp-controller="Home" method="post">
+            
+            <table>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label class="control-label">Start Date</label>
+                            <input type="datetime-local" name="StartDate" class="form-control" value="" />
+                            
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label class="control-label">FirstName</label>
+                            <input type="text" name="FirstName" class="form-control" value="" />
+                            
+                        </div>
+                    </td>
+                    <td>
+                        @*<div class="form-group">
+                            <label class="control-label">In-active Only</label>
+                            <input type="checkbox" name="Status" class="form-control" />
+
+                        </div>*@
+                        <label>In-active Only</label>
+                        <input type="checkbox" name="Status" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label class="control-label">End Date</label>
+                            <input type="datetime-local" name="EndDate" class="form-control" value="" />
+                            
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label class="control-label">Last Name</label>
+                            <input type="text" name="LastName" class="form-control" value="" />
+                           
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <button type="submit" asp-action="BadgeReportPage">Submit</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+
+<!----------------------->
 
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                Name
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.TempBadge)
@@ -19,9 +81,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.SignIn)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.AssignTime)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.SignOut)
             </th>
@@ -32,7 +94,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TempBadge)
@@ -40,9 +102,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.SignIn)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.AssignTime)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.SignOut)
             </td>

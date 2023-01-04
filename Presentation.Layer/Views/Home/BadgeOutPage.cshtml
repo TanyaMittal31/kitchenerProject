@@ -6,27 +6,43 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>BadgeOutPage</h1>
-
+<h1>Badge Out Page</h1>
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Index">Back to Home Page</a>
 </p>
+
 <table class="table">
     <thead>
         <tr>
-            <th>Image</th>
-            <th>Name</th>
-            <th>Badge</th>
-            <th>Assign Time</th>
+            <th>
+                Profile Image
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                Temporary Badge
+            </th>
+            <th>
+                Assign Time(in Seconds)
+            </th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-                <td>@item.PhotoUrl</td>
-                <td>@item.Name</td>
-                <td>@item.TempBadge</td>
-                <td>@item.AssignTime</td>
+                <td>
+                    <img src="@Url.Content(@item.PhotoUrl)" target="_blank" class="one profileImage" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TempBadge)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AssignTime)
+                </td>
         </tr>
 }
     </tbody>

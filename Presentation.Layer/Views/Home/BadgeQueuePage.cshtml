@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Data.Access.Layer.Models.Report>
+
+@{
+    ViewData["Title"] = "BadgeQueuePage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Badge Queue</h1>
+
+<p>
+    <a asp-action="Index">Back to Home Page</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Profile Image
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                Temporary Badge
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <img src="@Url.Content(@item.PhotoUrl)" target="_blank" class="one profileImage" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TempBadge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

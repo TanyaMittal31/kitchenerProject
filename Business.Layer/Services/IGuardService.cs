@@ -12,11 +12,16 @@ namespace Business.Layer.Services
         public IEnumerable<Gaurd> SignInBadge(string fname, string lname, int ecode);
         public IEnumerable<Gaurd> SignOutBadge(int Id);
         public IEnumerable<Gaurd> GetBadges();
+        public IEnumerable<Report> GetBadgeQueue();
 
         //============ changes ===========
         public IEnumerable<Gaurd> SignOutPage(string TempBadge);
 
         public IEnumerable<MultiModelPage> GetMultiModels();
-        public IEnumerable<Report> GetReports();
+        /*public IEnumerable<Report> GetReports();*/
+
+        //==========================
+        public IEnumerable<Gaurd> GetNReports();
+        public IEnumerable<Gaurd> GetReports(DateTime StartDate, DateTime EndDate, string FirstName, string LastName, string Status);
     }
 }

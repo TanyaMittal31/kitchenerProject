@@ -9,10 +9,9 @@
 
 @using (Html.BeginForm("show", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    <h1>Create</h1>
 
-    <h4>User</h4>
-    <hr />
+    <h4>Register</h4>
+    
     <div class="row">
         <div class="col-md-4">
             <form asp-action="show">
@@ -34,7 +33,7 @@
                 
 
                 <div class="form-group">
-                    <input type="submit" value="Search" class="btn btn-primary" asp-action="show" />
+                    <input type="submit" value="Search" class="btn RegisterButton" asp-action="show" />
                 </div>
             </form>
 

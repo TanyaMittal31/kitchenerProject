@@ -56,6 +56,9 @@ public partial class KitchenerTempBadgeContext : IdentityDbContext
                 .HasMaxLength(50)
                 .IsUnicode(false);
 
+            //=========== change =========
+            //entity.Property(e => e.TempBadge).UseIdentityColumn().HasDefaultValueSql("NULL");
+
             entity.HasOne(d => d.EmpCodeNavigation).WithMany(p => p.Gaurds)
                 .HasForeignKey(d => d.EmpCode)
                 .OnDelete(DeleteBehavior.ClientSetNull)

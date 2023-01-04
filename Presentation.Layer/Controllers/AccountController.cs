@@ -23,8 +23,6 @@ namespace Presentation.Layer.Controllers
             return View();
         }
 
-
-
         [HttpPost]
         public async Task<IActionResult> Register(User model)
         {
@@ -32,17 +30,7 @@ namespace Presentation.Layer.Controllers
             {
                 var user = new IdentityUser { UserName = model.Email, Email = model.Email };
                 var result = await userManager.CreateAsync(user, model.Password);
-                //if (result.Succeeded)
-                //{
-                //    await signInManager.SignInAsync(user, isPersistent: false);
-
-
-
-                //    return RedirectToAction("index", "home");
-
-
-
-                //}
+                
                 foreach (var error in result.Errors)
                     ModelState.AddModelError("", error.Description);
 
@@ -50,15 +38,12 @@ namespace Presentation.Layer.Controllers
             return View(model);
         }
 
-        
-[HttpPost]
-
- public async Task<IActionResult> Logout()
+        [HttpPost]
+        public async Task<IActionResult> Logout()
         {
             await signInManager.SignOutAsync();
             return RedirectToAction("index", "home");
         }
-
 
         [HttpGet]
         public IActionResult Login()
@@ -85,7 +70,5 @@ namespace Presentation.Layer.Controllers
             }
             return View(model);
         }
-
-
     }
 }

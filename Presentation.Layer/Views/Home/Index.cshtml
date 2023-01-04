@@ -1,32 +1,41 @@
-﻿@{
+﻿@inject SignInManager<IdentityUser> signInManager;
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="container-fluid home" >
     <div>
-        <nav class="navbar navbar-expand-lg bg-primary navbar-dark homeNav">
+        <nav class="navbar navbar-expand-lg homeNav">
             <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" asp-action="Index">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-action="GetBadges">Badge Queue</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-action="BadgeOutPage">Badge Out</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-action="BadgeReportPage">Badge Report</a>
-                </li>
+                @if (signInManager.IsSignedIn(User))
+                {
+                    <li class="nav-item active">
+                        <a class="nav-link HomeLink" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link HomeLink" asp-action="BadgeQueuePage">Badge Queue</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link HomeLink" asp-action="BadgeOutPage">Badge Out</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link HomeLink" asp-action="BadgeReportPage">Badge Report</a>
+                    </li>
+                }
+                else{
+                    <li class="nav-item active">
+                        <a class="nav-link HomeLink" asp-action="Index">Home</a>
+                    </li>
+                }
             </ul>
         </nav>
     </div>
     <div class="Sign">
         <div class="SignIn">
-            <a asp-action="SignIn" class="btn btn-primary btn-lg">Sign In</a>
+            <a asp-action="SignIn" class="btn HomeButton">Sign In</a>
         </div>
         <div class="SignOut">
-            <a asp-action="SignOutPage" class="btn btn-primary btn-lg">Sign Out</a>
+            <a asp-action="SignOutPage" class="btn HomeButton">Sign Out</a>
         </div>
     </div>
 </div>

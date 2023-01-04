@@ -10,9 +10,11 @@ namespace Data.Access.Layer.Models
     {
         public string PhotoUrl { get; set; } = null!;
         public string Name { get; set; } = null!;
-        public string TempBadge { get; set; } = null!;
-            
+        public string TempBadge { get; set; } 
+         
         public int AssignTime { get; set; }
+        //==============
+        public string SignOut { get; set; }
         
 
     }
