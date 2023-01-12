@@ -7,8 +7,9 @@ namespace Presentation.Layer.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<IdentityUser> userManager;
-        private readonly SignInManager<IdentityUser> signInManager;
+        private readonly UserManager<IdentityUser> userManager; // provides the api for managing the users
+        
+        private readonly SignInManager<IdentityUser> signInManager;     // provides the api for signing the users
 
         public AccountController(UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager)
@@ -42,6 +43,7 @@ namespace Presentation.Layer.Controllers
         public async Task<IActionResult> Logout()
         {
             await signInManager.SignOutAsync();
+            
             return RedirectToAction("index", "home");
         }
 

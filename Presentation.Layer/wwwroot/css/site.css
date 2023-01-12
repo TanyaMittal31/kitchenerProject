@@ -80,3 +80,11 @@ body {
     height:15vh;
     width:12vh;
 }
+
+/*============================= badgeReport ====================*/
+
+.brTable{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}

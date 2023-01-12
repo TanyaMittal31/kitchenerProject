@@ -10,6 +10,7 @@ namespace Data.Access.Layer.Models
     public class User
     {
         [Required]
+        [EmailAddress]
         public string Email { get; set; }
         [Required]
         [DataType(DataType.Password)]
