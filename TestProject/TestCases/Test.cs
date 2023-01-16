@@ -106,3 +106,8 @@ namespace TestProject.TestCases
 
 }
 
+/*fact -> single seed data pass krenge (arrange -> setup the object, action-> act on the object, assert -> make claims about the object)
+assert ->
+theory -> multiple seed data
+inline -> using inline we pass data
+*/
